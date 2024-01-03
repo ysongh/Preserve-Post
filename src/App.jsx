@@ -1,11 +1,13 @@
+import { ChakraProvider, Text } from '@chakra-ui/react';
+
 import './App.css';
 
 function App() {
 
   return (
-    <>
-      <h1>Preserve Post</h1>
-    </>
+    <ChakraProvider>
+      <Text textColor="blue">Preserve Post</Text>
+    </ChakraProvider>
   )
 }
 
