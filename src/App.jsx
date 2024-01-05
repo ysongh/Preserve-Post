@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ChakraProvider, Text } from '@chakra-ui/react';
 
 import './App.css';
+import Navbar from './components/layout/Navbar';
 import SaveTweet from './pages/SaveTweet';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return (
     <ChakraProvider>
       <HashRouter>
+        <Navbar />
         <Routes>
           <Route
             path="/test"
