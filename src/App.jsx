@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ChakraProvider, Text } from '@chakra-ui/react';
 
 import './App.css';
+import SaveTweet from './pages/SaveTweet';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
             path="/test"
             element={
               <>
-                <h1>Test</h1>
+                <SaveTweet />
               </>} />
           <Route
             path="/"
