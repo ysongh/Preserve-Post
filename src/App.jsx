@@ -3,6 +3,7 @@ import { ChakraProvider, Text } from '@chakra-ui/react';
 
 import Navbar from './components/layout/Navbar';
 import SaveTweet from './pages/SaveTweet';
+import TweetForm from './pages/TweetForm';
 
 function App() {
 
@@ -17,6 +18,10 @@ function App() {
               <>
                 <SaveTweet />
               </>} />
+          <Route
+            path="/form"
+            element={
+              <TweetForm /> } />
           <Route
             path="/"
             element={
