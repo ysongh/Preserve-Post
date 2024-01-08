@@ -12,9 +12,15 @@ function Navbar() {
             </Link>
           </Box>
           <Spacer />
-          <Link as={ReactLink} to="/">Home</Link>
-          <Link as={ReactLink} to="/form">Form</Link>
-          <Link as={ReactLink} to="/test">Test</Link>
+          <Link as={ReactLink} to="/" fontSize="20px" mr="2">
+            Home
+          </Link>
+          <Link as={ReactLink} to="/form" fontSize="20px" mr="2">
+            Form
+          </Link>
+          <Link as={ReactLink} to="/test" fontSize="20px">
+            Test
+          </Link>
         </Flex>
       </Container>
     </Box>
