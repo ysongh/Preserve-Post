@@ -10,10 +10,16 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
+import { addTweet } from '../supabase';
+
 const TweetForm = () => {
   const [title, setTitle] = useState();
   const [detail, setDetail] = useState();
   const [tags, setTags] = useState();
+
+  const createTweet = async () => {
+    await addTweet(title, detail, [tags]);
+  }
 
   return (
     <Container>
@@ -50,7 +56,7 @@ const TweetForm = () => {
                 onChange={(e) => setTags(e.target.value)}
               />
             </FormControl>
-            <Button colorScheme="blue">
+            <Button colorScheme="blue" onClick={createTweet}>
               Add
             </Button>
           </VStack>
