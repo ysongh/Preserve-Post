@@ -18,3 +18,10 @@ export const addTweet = async (title, detail, tags) => {
     .select()
   console.log(data);
 }
+
+export const getTweets = async () => {
+  let { data: Tweets, error } = await supabase
+    .from('tweet')
+    .select('*');
+  console.log(Tweets);
+}

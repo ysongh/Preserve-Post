@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import {
   Container,
   VStack,
@@ -10,6 +10,8 @@ import {
   Divider,
 } from '@chakra-ui/react';
 
+import { getTweets } from '../supabase';
+
 const tweets = [
   {
     id: "0",
@@ -20,6 +22,10 @@ const tweets = [
 ];
 
 function ListofTweet() {
+  useEffect(() => {
+    getTweets();
+  }, [])
+
   return (
     <Container maxW='1100px'>
       <VStack spacing={4} align="stretch">
