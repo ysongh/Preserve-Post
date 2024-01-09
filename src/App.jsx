@@ -4,9 +4,9 @@ import { ChakraProvider, Text } from '@chakra-ui/react';
 import Navbar from './components/layout/Navbar';
 import SaveTweet from './pages/SaveTweet';
 import TweetForm from './pages/TweetForm';
+import ListofTweet from './pages/ListofTweet';
 
 function App() {
-
   return (
     <ChakraProvider>
       <HashRouter>
@@ -25,7 +25,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Text>Home</Text>} />
+              <ListofTweet /> } />
         </Routes>
       </HashRouter>
     </ChakraProvider>
