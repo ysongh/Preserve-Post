@@ -8,6 +8,7 @@ import {
   Flex,
   Badge,
   Divider,
+  Button,
 } from '@chakra-ui/react';
 
 import { getTweets } from '../supabase';
@@ -39,7 +40,7 @@ function ListofTweet() {
             <Divider my={2} />
             <Flex align="center" justify="space-between">
               <Text fontSize="sm" color="gray.500">Posted on {new Date(tweet.created_at).toLocaleDateString()}</Text>
-              <Text fontSize="sm" color="gray.500">{tweet.likes} Likes</Text>
+              <Button>View</Button>
             </Flex>
           </Box>
         ))}
