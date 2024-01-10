@@ -24,4 +24,5 @@ export const getTweets = async () => {
     .from('tweet')
     .select('*');
   console.log(Tweets);
+  return Tweets;
 }

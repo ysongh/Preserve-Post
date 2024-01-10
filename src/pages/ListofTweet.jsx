@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Container,
   VStack,
@@ -12,19 +12,17 @@ import {
 
 import { getTweets } from '../supabase';
 
-const tweets = [
-  {
-    id: "0",
-    text: "Test",
-    author: "Bob",
-    likes: 1
-  }
-];
-
 function ListofTweet() {
   useEffect(() => {
-    getTweets();
-  }, [])
+    fetchTweets();
+  }, []);
+
+  const fetchTweets = async () => {
+    const newTweets = await getTweets();
+    settweets(newTweets);
+  }
+
+  const [tweets, settweets] = useState([]);
 
   return (
     <Container maxW='1100px'>
@@ -33,14 +31,14 @@ function ListofTweet() {
         {tweets.map(tweet => (
           <Box key={tweet.id} p={4} borderWidth="1px" borderRadius="md">
             <Flex align="center" justify="space-between">
-              <Text>{tweet.text}</Text>
+              <Text>{tweet.title}</Text>
               <Badge variant="subtle" colorScheme="teal" mx={1}>
                 Tesst
               </Badge>
             </Flex>
             <Divider my={2} />
             <Flex align="center" justify="space-between">
-              <Text fontSize="sm" color="gray.500">Posted by {tweet.author} on {new Date(tweet.createdAt).toLocaleDateString()}</Text>
+              <Text fontSize="sm" color="gray.500">Posted on {new Date(tweet.created_at).toLocaleDateString()}</Text>
               <Text fontSize="sm" color="gray.500">{tweet.likes} Likes</Text>
             </Flex>
           </Box>
