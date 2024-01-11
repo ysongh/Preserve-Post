@@ -16,9 +16,10 @@ const TweetForm = () => {
   const [title, setTitle] = useState();
   const [detail, setDetail] = useState();
   const [tags, setTags] = useState();
+  const [imageurl, setImageurl] = useState();
 
   const createTweet = async () => {
-    await addTweet(title, detail, [tags]);
+    await addTweet(title, detail, [tags], imageurl);
   }
 
   return (
@@ -54,6 +55,15 @@ const TweetForm = () => {
                 name="tags"
                 value={tags}
                 onChange={(e) => setTags(e.target.value)}
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel>Image URL</FormLabel>
+              <Input
+                type="text"
+                name="imageurl"
+                value={imageurl}
+                onChange={(e) => setImageurl(e.target.value)}
               />
             </FormControl>
             <Button colorScheme="blue" onClick={createTweet}>
