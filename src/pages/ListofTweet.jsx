@@ -33,9 +33,9 @@ function ListofTweet() {
         {tweets.map(tweet => (
           <Box key={tweet.id} p={4} borderWidth="1px" borderRadius="md">
             <Flex align="center" justify="space-between">
-              <Text>{tweet.title}</Text>
+              <Text>{tweet.detail}</Text>
               <Badge variant="subtle" colorScheme="teal" mx={1}>
-                Tesst
+                {tweet.tags[0]}
               </Badge>
             </Flex>
             {tweet?.imageurl && <Image src={tweet.imageurl} width={100} />}

@@ -13,13 +13,12 @@ import {
 import { addTweet } from '../supabase';
 
 const TweetForm = () => {
-  const [title, setTitle] = useState();
   const [detail, setDetail] = useState();
   const [tags, setTags] = useState();
   const [imageurl, setImageurl] = useState();
 
   const createTweet = async () => {
-    await addTweet(title, detail, [tags], imageurl);
+    await addTweet(detail, [tags], imageurl);
   }
 
   return (
@@ -31,13 +30,6 @@ const TweetForm = () => {
         <form>
           <VStack spacing={4}>
             <FormControl isRequired>
-              <FormLabel>Title</FormLabel>
-              <Input
-                type="text"
-                name="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
             </FormControl>
             <FormControl isRequired>
               <FormLabel>Detail</FormLabel>
