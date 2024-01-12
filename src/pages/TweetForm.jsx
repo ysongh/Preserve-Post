@@ -5,6 +5,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Textarea,
   Button,
   Heading,
   VStack,
@@ -33,9 +34,9 @@ const TweetForm = () => {
             </FormControl>
             <FormControl isRequired>
               <FormLabel>Detail</FormLabel>
-              <Input
-                type="text"
+              <Textarea
                 name="detail"
+                rows={7}
                 value={detail}
                 onChange={(e) => setDetail(e.target.value)}
               />
