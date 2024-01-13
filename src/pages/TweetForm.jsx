@@ -14,12 +14,13 @@ import {
 import { addTweet } from '../supabase';
 
 const TweetForm = () => {
-  const [detail, setDetail] = useState();
-  const [tags, setTags] = useState();
-  const [imageurl, setImageurl] = useState();
+  const [detail, setDetail] = useState("");
+  const [tags, setTags] = useState("");
+  const [imageurl, setImageurl] = useState("");
+  const [tweeturl, setTweeturl] = useState("");
 
   const createTweet = async () => {
-    await addTweet(detail, [tags], imageurl);
+    await addTweet(detail, [tags], imageurl, tweeturl);
   }
 
   return (
@@ -57,6 +58,15 @@ const TweetForm = () => {
                 name="imageurl"
                 value={imageurl}
                 onChange={(e) => setImageurl(e.target.value)}
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel>Tweet URL</FormLabel>
+              <Input
+                type="text"
+                name="tweeturl"
+                value={tweeturl}
+                onChange={(e) => setTweeturl(e.target.value)}
               />
             </FormControl>
             <Button colorScheme="blue" onClick={createTweet}>

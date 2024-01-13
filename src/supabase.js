@@ -9,11 +9,11 @@ export const connect = () => {
   console.log(supabase);
 }
 
-export const addTweet = async (detail, tags, imageurl) => {
+export const addTweet = async (detail, tags, imageurl, tweeturl) => {
   const { data, error } = await supabase
     .from('tweet')
     .insert([
-      { detail, tags, imageurl},
+      { detail, tags, imageurl, tweeturl},
     ])
     .select()
   console.log(data);
