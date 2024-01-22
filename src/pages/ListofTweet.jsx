@@ -9,6 +9,7 @@ import {
   Badge,
   Divider,
   Button,
+  Link,
   Image,
 } from '@chakra-ui/react';
 
@@ -39,6 +40,9 @@ function ListofTweet() {
               </Badge>
             </Flex>
             {tweet?.imageurl && <Image src={tweet.imageurl} width={100} />}
+            <Link href={tweet?.tweeturl} isExternal>
+              {tweet?.tweeturl}
+            </Link>
             <Divider my={2} />
             <Flex align="center" justify="space-between">
               <Text fontSize="sm" color="gray.500">Posted on {new Date(tweet.created_at).toLocaleDateString()}</Text>
