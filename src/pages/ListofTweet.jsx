@@ -13,7 +13,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 
-import { getTweets } from '../supabase';
+import { getTweets, getTweetsByTag } from '../supabase';
 
 function ListofTweet() {
   useEffect(() => {
@@ -21,7 +21,8 @@ function ListofTweet() {
   }, []);
 
   const fetchTweets = async () => {
-    const newTweets = await getTweets();
+    // const newTweets = await getTweets();
+    const newTweets = await getTweetsByTag();
     settweets(newTweets);
   }
 

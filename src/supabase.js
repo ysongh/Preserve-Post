@@ -26,3 +26,13 @@ export const getTweets = async () => {
   console.log(Tweets);
   return Tweets;
 }
+
+export const getTweetsByTag = async () => {
+  let { data: Tweets, error } = await supabase
+    .from('tweet')
+    .select('*')
+    .containedBy('tags', ['Test']);
+  console.log(Tweets);
+  console.log(error);
+  return Tweets;
+}
