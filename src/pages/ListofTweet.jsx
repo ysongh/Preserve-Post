@@ -9,6 +9,9 @@ import {
   Badge,
   Divider,
   Button,
+  InputGroup,
+  Input,
+  InputRightElement,
   Link,
   Image,
 } from '@chakra-ui/react';
@@ -21,17 +24,28 @@ function ListofTweet() {
   }, []);
 
   const fetchTweets = async () => {
-    // const newTweets = await getTweets();
-    const newTweets = await getTweetsByTag();
+    const newTweets = await getTweets();
+    settweets(newTweets);
+  }
+
+  const fetchTweetsByTag = async () => {
+    const newTweets = await getTweetsByTag(search);
     settweets(newTweets);
   }
 
   const [tweets, settweets] = useState([]);
+  const [search, setSearch] = useState("");
 
   return (
     <Container maxW='1100px'>
       <VStack spacing={4} align="stretch">
         <Heading size="lg">Tweet List</Heading>
+        <InputGroup bg='white' mt='4'>
+          <Input placeholder='Search by Tag' value={search} onChange={(e) => setSearch(e.target.value)}/>
+          <InputRightElement>
+            <Text mr="2" color="blue" fontWeight="bold" onClick={fetchTweetsByTag}>Find</Text>
+          </InputRightElement>
+        </InputGroup>
         {tweets.map(tweet => (
           <Box key={tweet.id} p={4} borderWidth="1px" borderRadius="md">
             <Flex align="center" justify="space-between">
