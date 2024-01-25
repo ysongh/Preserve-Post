@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { SearchIcon } from "@chakra-ui/icons";
 import {
   Container,
   VStack,
@@ -43,7 +44,7 @@ function ListofTweet() {
         <InputGroup bg='white' mt='4'>
           <Input placeholder='Search by Tag' value={search} onChange={(e) => setSearch(e.target.value)}/>
           <InputRightElement>
-            <Text mr="2" color="blue" fontWeight="bold" onClick={fetchTweetsByTag}>Find</Text>
+            <SearchIcon cursor="pointer" onClick={fetchTweetsByTag}/>
           </InputRightElement>
         </InputGroup>
         {tweets.map(tweet => (
