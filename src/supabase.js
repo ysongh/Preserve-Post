@@ -31,7 +31,7 @@ export const getTweetsByTag = async (search) => {
   let { data: Tweets, error } = await supabase
     .from('tweet')
     .select('*')
-    .containedBy('tags', [search]);
+    .containedBy('tags', [search.toLocaleLowerCase()]);
   console.log(Tweets);
   console.log(error);
   return Tweets;
