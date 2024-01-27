@@ -47,6 +47,9 @@ function ListofTweet() {
             <SearchIcon cursor="pointer" onClick={fetchTweetsByTag}/>
           </InputRightElement>
         </InputGroup>
+        <Button onClick={fetchTweets}>
+          Reset
+        </Button>
         {tweets.map(tweet => (
           <Box key={tweet.id} p={4} borderWidth="1px" borderRadius="md">
             <Flex align="center" justify="space-between">
