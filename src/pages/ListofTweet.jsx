@@ -4,20 +4,14 @@ import {
   Container,
   VStack,
   Heading,
-  Text,
-  Box,
-  Flex,
-  Badge,
-  Divider,
   Button,
   InputGroup,
   Input,
   InputRightElement,
-  Link,
-  Image,
 } from '@chakra-ui/react';
 
 import { getTweets, getTweetsByTag } from '../supabase';
+import Tweet from '../components/Tweet';
 
 function ListofTweet() {
   useEffect(() => {
@@ -51,23 +45,7 @@ function ListofTweet() {
           Reset
         </Button>
         {tweets.map(tweet => (
-          <Box key={tweet.id} p={4} borderWidth="1px" borderRadius="md">
-            <Flex align="center" justify="space-between">
-              <Text>{tweet.detail}</Text>
-              <Badge variant="subtle" colorScheme="teal" mx={1}>
-                {tweet.tags[0]}
-              </Badge>
-            </Flex>
-            {tweet?.imageurl && <Image src={tweet.imageurl} width={100} />}
-            <Link href={tweet?.tweeturl} color="teal.500" isExternal>
-              {tweet?.tweeturl}
-            </Link>
-            <Divider my={2} />
-            <Flex align="center" justify="space-between">
-              <Text fontSize="sm" color="gray.500">Posted on {new Date(tweet.created_at).toLocaleDateString()}</Text>
-              <Button>View</Button>
-            </Flex>
-          </Box>
+          <Tweet tweet={tweet} key={tweet.id} />
         ))}
       </VStack>
     </Container>
