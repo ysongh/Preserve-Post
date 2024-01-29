@@ -59,7 +59,7 @@ function ListofTweet() {
               </Badge>
             </Flex>
             {tweet?.imageurl && <Image src={tweet.imageurl} width={100} />}
-            <Link href={tweet?.tweeturl} isExternal>
+            <Link href={tweet?.tweeturl} color="teal.500" isExternal>
               {tweet?.tweeturl}
             </Link>
             <Divider my={2} />
