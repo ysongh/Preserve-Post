@@ -34,7 +34,9 @@ function ListofTweet() {
   return (
     <Container maxW='1100px'>
       <VStack spacing={4} align="stretch">
-        <Heading size="lg">Tweet List</Heading>
+        <Heading size="lg" mt='4'>
+          Tweet List
+        </Heading>
         <InputGroup bg='white' mt='4'>
           <Input placeholder='Search by Tag' value={search} onChange={(e) => setSearch(e.target.value)}/>
           <InputRightElement>
