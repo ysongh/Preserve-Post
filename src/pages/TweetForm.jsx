@@ -25,7 +25,7 @@ const TweetForm = () => {
 
   return (
     <Container>
-      <Box p={8}>
+      <Box p={8} bg="teal.100" mt="3" rounded="5px">
         <Heading as="h2" size="lg" mb={4}>
           Enter Tweet Data
         </Heading>
