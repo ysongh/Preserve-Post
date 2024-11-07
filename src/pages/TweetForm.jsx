@@ -40,6 +40,7 @@ const TweetForm = () => {
                 rows={7}
                 value={detail}
                 onChange={(e) => setDetail(e.target.value)}
+                bg="white"
               />
             </FormControl>
             <FormControl isRequired>
@@ -49,6 +50,7 @@ const TweetForm = () => {
                 name="tags"
                 value={tags}
                 onChange={(e) => setTags(e.target.value)}
+                bg="white"
               />
             </FormControl>
             <FormControl>
@@ -58,6 +60,7 @@ const TweetForm = () => {
                 name="imageurl"
                 value={imageurl}
                 onChange={(e) => setImageurl(e.target.value)}
+                bg="white"
               />
             </FormControl>
             <FormControl>
@@ -67,6 +70,7 @@ const TweetForm = () => {
                 name="tweeturl"
                 value={tweeturl}
                 onChange={(e) => setTweeturl(e.target.value)}
+                bg="white"
               />
             </FormControl>
             <Button colorScheme="blue" onClick={createTweet}>
