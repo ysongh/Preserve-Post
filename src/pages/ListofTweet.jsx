@@ -14,6 +14,9 @@ import { getTweets, getTweetsByTag } from '../supabase';
 import Tweet from '../components/Tweet';
 
 function ListofTweet() {
+  const [tweets, settweets] = useState([]);
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     fetchTweets();
   }, []);
@@ -27,9 +30,6 @@ function ListofTweet() {
     const newTweets = await getTweetsByTag(search);
     settweets(newTweets);
   }
-
-  const [tweets, settweets] = useState([]);
-  const [search, setSearch] = useState("");
 
   return (
     <Container maxW='1100px'>
