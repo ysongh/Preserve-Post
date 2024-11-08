@@ -5,6 +5,7 @@ import {
   VStack,
   Heading,
   Button,
+  Text,
   InputGroup,
   Input,
   InputRightElement,
@@ -49,6 +50,7 @@ function ListofTweet() {
         {tweets.map(tweet => (
           <Tweet tweet={tweet} key={tweet.id} />
         ))}
+        {!tweets.length && <Text fontSize="2xl" color="red">No Tweet...</Text>}
       </VStack>
     </Container>
   );
