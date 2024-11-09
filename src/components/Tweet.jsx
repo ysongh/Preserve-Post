@@ -26,7 +26,7 @@ function Tweet({ tweet }) {
       <Divider my={2} />
       <Flex align="center" justify="space-between">
         <Text fontSize="sm" color="gray.500">Posted on {new Date(tweet.created_at).toLocaleDateString()}</Text>
-        <Button>View</Button>
+        <Button bg="blue.200">View</Button>
       </Flex>
     </Box>
   )
