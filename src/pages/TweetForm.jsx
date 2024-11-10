@@ -8,6 +8,7 @@ import {
   Textarea,
   Button,
   Heading,
+  Text,
   VStack,
 } from '@chakra-ui/react';
 
@@ -18,9 +19,11 @@ const TweetForm = () => {
   const [tags, setTags] = useState("");
   const [imageurl, setImageurl] = useState("");
   const [tweeturl, setTweeturl] = useState("");
+  const [message, setMessage] = useState("")
 
   const createTweet = async () => {
     await addTweet(detail, [tags.toLocaleLowerCase()], imageurl, tweeturl);
+    setMessage("Added");
   }
 
   return (
@@ -76,6 +79,7 @@ const TweetForm = () => {
             <Button colorScheme="blue" onClick={createTweet}>
               Add
             </Button>
+            {message && <Text>{message}</Text>}
           </VStack>
         </form>
       </Box>
