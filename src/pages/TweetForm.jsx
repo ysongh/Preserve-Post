@@ -24,6 +24,10 @@ const TweetForm = () => {
   const createTweet = async () => {
     await addTweet(detail, [tags.toLocaleLowerCase()], imageurl, tweeturl);
     setMessage("Added");
+    setDetail("");
+    setTags("");
+    setImageurl("");
+    setTweeturl("");
   }
 
   return (
