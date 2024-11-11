@@ -10,24 +10,32 @@ import {
   Heading,
   Text,
   VStack,
+  useToast,
 } from '@chakra-ui/react';
 
 import { addTweet } from '../supabase';
 
 const TweetForm = () => {
+  const toast = useToast();
+
   const [detail, setDetail] = useState("");
   const [tags, setTags] = useState("");
   const [imageurl, setImageurl] = useState("");
   const [tweeturl, setTweeturl] = useState("");
-  const [message, setMessage] = useState("")
 
   const createTweet = async () => {
     await addTweet(detail, [tags.toLocaleLowerCase()], imageurl, tweeturl);
-    setMessage("Added");
     setDetail("");
     setTags("");
     setImageurl("");
     setTweeturl("");
+    toast({
+      title: "Added",
+      description: "The new tweet has been recorded successfully.",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   }
 
   return (
@@ -83,7 +91,6 @@ const TweetForm = () => {
             <Button colorScheme="blue" onClick={createTweet}>
               Add
             </Button>
-            {message && <Text>{message}</Text>}
           </VStack>
         </form>
       </Box>
